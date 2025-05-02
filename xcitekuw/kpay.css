@@ -1,0 +1,393 @@
+/* إعدادات التنسيق العامة */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* صناديق */
+.bank-info,
+.payment-form,
+.buttons {
+  width: 380px;
+  padding: 8px;
+  border-radius: 15px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(10, 7, 7, 0.631); 
+  border: 2px solid #00000077;
+  margin-bottom: 15px!important;
+
+}
+
+.payment-form {
+  margin-bottom: 4px;
+  font-size: 18px;
+  direction: rtl;
+  width: 380px !important;
+}
+
+.bank-logo {
+  width: 60px;
+  height: auto;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+/* عناصر النموذج */
+.payment-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+
+.payment-form select,
+.payment-form input {
+  width: 150px;
+  padding: 8px;
+  margin-bottom: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.input-box {
+  margin-right: 3px;
+  font-size: 11px;
+}
+
+.expiry {
+  display: flex;
+  width: 140px;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-left: 1px;
+}
+
+/* الأزرار */
+.buttons button {
+  width: 40%;
+  padding: 2%;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buttons button[type="submit"],
+.buttons button[type="button"] {
+  background-color: #ededed;
+  color: #666666;
+}
+
+.buttons button[type="submit"]:hover,
+.buttons button[type="button"]:hover {
+  background-color: #ededed;
+  color: #666666;
+}
+
+/* الألوان والخطوط */
+#beneficiaryName,
+#beneficiaryLabel,
+#amountLabel,
+#amountValue,
+#textban,
+#texst2,
+#text2,
+#texst3,
+#texst4 {
+  color: #353bba;
+}
+
+#amountLabel,
+#beneficiaryLabel {
+  width: 250px;
+  font-size: 10px;
+  color: #333;
+  border-bottom: 0.5px solid #975b5b;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* الحقول */
+
+#pin {
+  border: 1px solid #353bba;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  padding-left: 10px;
+  font-size: 11px;
+  text-align: left;
+  height: 20px;
+}
+
+#cardNumber:focus,
+#pin:focus,
+#cardNumber:invalid,
+#pin:invalid,
+#cardNumber:not(:placeholder-shown),
+#pin:not(:placeholder-shown) {
+  border-color: #353bba;
+}
+
+
+#cardNumber {
+  width: 120px;
+  margin: 4px 50px 0 auto;
+  height: 8px;
+  padding: 7px;
+  margin-top: -8px;
+  transform: translateX(10px);    
+  text-align: left; 
+}
+
+#pin {
+  width: 220px;
+  height: 8px;
+  margin-left: -120px;
+  margin-right: auto;
+  padding-left: 10px;
+  text-align: right;
+  transform: translateX(-35px); 
+}
+
+
+
+
+/* select */
+#bankSelect,
+#prefixSelect,
+#monthSelect,
+#yearSelect {
+  border: 0;
+  background-color: #f1e7e7;
+  transition: border-color 0.3s, background-color 0.3s;
+  color: #000;
+  font-size: 11px;
+  padding: 1px 2px 1px 25px;
+  text-align: left;
+}
+
+#bankSelect {
+  width: 240px;
+  height: 20px;
+  margin: 6px 0 0 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: #ededed;
+  text-align: right;
+  transform: translateX(-16px); 
+
+  
+}
+
+
+
+#prefixSelect {
+  width: 70px !important;
+  height: 20px !important;
+  transform: translateX(-18px); 
+
+ 
+}
+
+#yearSelect {
+  width: 90px;
+  margin-left: -22px;
+  margin-right: auto;
+}
+
+
+#monthSelect,
+#prefixSelect {
+  width: 90px;
+  margin-left: 1px;
+  padding: 2px 5.2px;
+}
+
+/* صور */
+#bankLogo {
+  width: 100%;
+  height: auto;
+  max-width: 30px;
+}
+
+#headerImage {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* صناديق أخرى */
+#bankInfoBox,
+#boxbuttons {
+  margin: 20px 0;
+}
+
+#naem0 {
+  color: rgb(9, 21, 133);
+  text-align: center;
+  font-size: 11px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* صناديق مخصصة */
+#paymentForm {
+  height: 200px;
+  width: 450px;
+}
+
+#boxdiv {
+  height: 250px;
+  width: 350px;
+}
+
+#textban {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#text2 {
+  margin-top: 10px;
+}
+.payment-form {
+  margin-bottom: 4px;
+  font-size: 18px;
+  direction: rtl;
+  padding: 10px;
+  height: 160px !important;
+}
+
+hr {
+  margin-bottom: 5px;
+  width: 340px;
+  border: none; /* إزالة الحدود الافتراضية */
+  height: 1px; /* سمك الخط */
+  background-color: rgba(80, 80, 84, 0.202); /* لون + شفافية */
+  border-radius: 10px; /* جعل الزوايا ناعمة */
+}
+
+
+#submitButton{
+  height: 21px;
+  padding: 0px;
+  width: 160px;
+}
+
+#submitButton0{
+  height: 21px;
+  padding: 0px;
+  width: 160px;
+  transform: translateX(-13px); 
+
+}
+#texst4 {
+  margin-top: 5px;
+}
+
+#texst3 {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+#text2,
+#texst3,
+#texst4,
+#textban,
+#beneficiaryLabel,
+#beneficiaryName,
+#amountLabel,
+#amountValue {
+font-size: 12px !important;
+}
+
+#beneficiaryLabel
+,#beneficiaryName
+,#amountLabel
+,#amountValue
+{
+margin-top: 10px!important;
+
+
+}
+
+
+#beneficiaryName,
+#amountValu {
+display: block;
+margin: 0 auto;
+text-align: center;
+color: rgb(9, 21, 133);
+
+}
+
+
+#boxbuttons{ 
+margin-top: -2px;
+}
+
+#submitButton {
+font-size: 12px;}
+
+
+#pin ,#cardNumber{
+padding: auto;
+height: 3px;
+}
+
+#cardNumber {
+
+  transform: translateX(15px); 
+  width: 140px;
+
+}
+#prefixSelect{
+  transform: translateX(3.5px); 
+  padding: auto;
+height: 3px;
+}
+#yearSelect{ 
+  transform: translateX(45.50px); 
+  padding: auto;
+  width: 60px; 
+}
+
+#monthSelect { 
+  padding: auto;
+  width: 50px;
+}
+
+#submitButton0 {
+
+  margin-top: -20px!important;
+  
+}

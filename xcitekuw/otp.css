@@ -1,0 +1,418 @@
+/* إعدادات التنسيق العامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 0px 0px 0px;
+}
+
+/* تنسيق صندوق المعلومات البنكية */
+.bank-info {
+  width: 300px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bank-logo {
+  width: 60px;
+  height: auto;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+/* تنسيق نموذج الدفع */
+.payment-form {
+  width: 300px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+.payment-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+
+.payment-form select,
+.payment-form input {
+  width: 150px;
+  padding: 8px;
+  margin-bottom: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+/* تنسيق الأزرار */
+.buttons {
+  width: 300px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.buttons button {
+  width: 40%;
+  padding: 2%;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buttons button[type="submit"] {
+  background-color: #ededed;
+  color: #666666;
+}
+
+.buttons button[type="submit"]:hover {
+  background-color: #ededed;
+  color: #666666;
+}
+
+.buttons button[type="button"] {
+  background-color: #ededed;
+  color: #666666;
+}
+
+.buttons button[type="button"]:hover {
+  background-color: #ededed;
+  color: #666666;
+}
+
+/* إضافة بعض التنسيقات العامة */
+.payment-form {
+  direction: rtl; /* لتوجيه النص من اليمين لليسار */
+}
+
+.input-container {
+  display: flex; /* استخدام flexbox لجعل العناصر بجانب بعض */
+  align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
+  margin-bottom: 3px;
+}
+
+/* إضافة مسافة بين النص وحقل الإدخال */
+.input-box {
+  margin-right: 3px; /* مسافة بين النص وحقل الإدخال */
+  font-size: 11px; /* حجم الخط داخل الحقل */
+}
+
+
+/* تنسيق حقل انتهاء الصلاحية */
+.expiry {
+  display: flex;
+  width: 140px; /* عرض الحقل */
+  justify-content: space-between;
+  font-size: 11px;
+  margin-left: 1px;
+}
+
+#cardNumber {
+  display: flex;
+  width: 75px;
+  font-size: 11px;
+  margin-left: 6px;
+  padding: 81px;
+}
+
+#bankSelect {
+  display: flex;
+  width: 137px;
+  font-size: 11px;
+  margin-left: 1px;
+  padding: 68px;
+}
+
+#amountLabel {
+  display: flex;
+  justify-content: space-between; /* توزيع النص على الجانبين */
+  align-items: center; /* محاذاة العناصر عموديًا */
+  width: 100%; /* يجعل العنصر يأخذ العرض الكامل */
+  font-size: 11px;
+  color: #333;
+}
+
+
+
+#amountLabel, #beneficiaryLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  font-size: 10px;
+  color: #333;
+  border-bottom: 0.50px solid #975b5b; /* خط أسفل النص بسُمك 2 بكسل ولون أسود */
+}
+
+#bankLogo {
+  width: 100%; /* تجعل الصورة بعرض كامل الحاوية */
+  height: auto; /* تحافظ على النسبة الأصلية للصورة */
+  max-width: 30px; /* تحديد أقصى عرض للصورة إذا كنت تريد تصغيرها */
+}
+
+#beneficiaryName, #beneficiaryLabel {
+  color: #353bba;
+}
+
+#amountLabel, #amountValue, #textban, #texst2 {
+  color: #353bba;
+}
+
+#text2, #texst3, #texst4 {
+  color: #353bba;
+}
+
+/* تحديد اللون الافتراضي للحافة */
+#cardNumber, #pin {
+  border: 1px solid #353bba; /* اللون الافتراضي للحافة */
+  border-radius: 5px;
+  outline: none; /* إزالة التحديد الخارجي */
+  transition: border-color 0.3s ease; /* إضافة تأثير الانتقال عند تغيير اللون */
+}
+
+/* تغيير لون الحافة عند التركيز */
+#cardNumber:focus, #pin:focus {
+  border-color: #353bba; /* اللون عند التركيز */
+}
+
+/* تغيير لون الحافة عندما يكون الحقل فارغًا */
+#cardNumber:invalid, #pin:invalid {
+  border-color: #353bba; /* اللون عند إدخال بيانات غير صالحة */
+}
+
+/* تغيير لون الحافة عند الكتابة داخل الحقل */
+#cardNumber:not(:placeholder-shown), #pin:not(:placeholder-shown) {
+  border-color: #353bba; /* اللون عند الكتابة في الحقل */
+}
+
+
+#bankSelect, #prefixSelect, #monthSelect, #yearSelect {
+  border-color: #007bff;
+  border: 0px solid #ccc;
+  background-color: #F1E7E7;
+  transition: border-color 0.3s, background-color 0.3s;
+  color: #000000; /* لون النص الافتراضي */
+  text-align: left; /* محاذاة النص إلى اليسار */
+  font-size: 11px;
+  padding: 1px 2px 1px 25px;
+}
+
+#bankSelect:not(:focus) {
+  border-width: 0px;
+}
+
+#cardNumber, #pin {
+  padding: 1px 2px 1px 25px;
+  text-align: left;
+}
+
+#yearSelect, #monthSelect, #prefixSelect {
+  width: 90px; /* عرض الحقل */
+  margin-left: 1px;
+  padding: 1px 20px 1px 25px;
+  padding: 2px 5.2px;
+}
+
+#pin {
+  padding: 3px 20px 1px 25px;
+}
+
+#cardNumber, #pin {
+  padding-right: 1px;
+  text-align: right;
+  font-size: 5px;
+}
+/* تحديد محاذاة النص داخل حقل الإدخال */
+#cardNumber, #pin {
+
+  text-align: left; /* محاذاة النص لليسار */
+  padding-left: 10px; /* إضافة حشو من اليسار ليبدأ النص من اليسار */
+  font-size: 11px;
+}
+
+/* التأكد من أن النص داخل الحقل لا يتجاوز المنتصف */
+#cardNumber::placeholder,::placeholder {
+  text-align: left; /* محاذاة النص داخل الـ placeholder لليسار */
+}
+#bankSelect {
+  width: 200px;  /* عرض العنصر */
+  height: 15px;  /* ارتفاع العنصر */
+  font-size: 11px;  /* حجم الخط داخل القائمة */
+  padding: 0px;  /* مسافة داخلية */
+  border: 1px solid #ffffff;  /* إطار خارجي */
+  border-radius: 5px;  /* تدوير الزوايا */
+  background-color: #ededed;  /* لون الخلفية */
+  text-align: right;
+}
+
+#pin {
+  text-align: right;  /* محاذاة النص إلى اليمين */
+}
+
+
+#pin {
+  padding-left: 10px; /* إضافة حشو من اليسار ليبدأ النص من اليسار */
+  font-size: 11px;
+}
+
+#bankSelect {
+width: 200px;
+right: 150px;
+
+}
+
+#prefixSelect{
+  width:80px;
+}
+#prefixSelect -container {
+   text-align: right;
+    width: 222px;
+    text-align: right;
+    width: 222px;
+}
+#headerImage {
+  top: 0;              /* تحديد المسافة من أعلى الصفحة */
+  left: 0;             /* تحديد المسافة من الجهة اليسرى */
+  right: 0;            /* تحديد المسافة من الجهة اليمنى */
+  bottom: 0;           /* تحديد المسافة من أسفل الصفحة */
+  width: 100%;         /* جعل العرض 100% من المساحة المتاحة */
+  height: 100%;        /* جعل الارتفاع 100% من المساحة المتاحة */
+  object-fit: cover;   /* التأكد من أن الصورة تغطي كامل المساحة بشكل مناسب */
+}
+#prefixSelect {
+  margin-left: 32px;   /* تحديد المسافة من اليسار */
+  margin-right: auto;
+}
+#yearSelect {
+  margin-left: -22px;   /* تحديد المسافة من اليسار */
+  margin-right: auto;
+}
+#cardNumber {
+  width: 100px;  /* تحديد العرض بالبكسل */
+  margin-left: -120px;   /* تحديد المسافة من اليسار */
+  margin-right: auto;
+}
+#pin {
+  width: 196px;  /* تحديد العرض بالبكسل */
+  margin-left: -120px;   /* تحديد المسافة من اليسار */
+  margin-right: auto;
+}
+
+#amountLabel , #beneficiaryLabel { 
+
+  width: 250px; /* تحديد عرض العنصر */
+  margin: 0 auto; 
+}
+
+#bankInfoBox {
+ 
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#boxbuttons {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+#naem0 { 
+
+  color: rgb(9, 21, 133); /* لون النص */
+  text-align: center; /* محاذاة النص للوسط */
+  padding: -10px -10px; /* مسافة داخلية من الأعلى والأسفل */
+  font-size: 11px; /* حجم الخط */
+  width: 100%; /* جعله يمتد على كامل العرض */
+  bottom: 0; /* تثبيته عند الحافة السفلية */
+  left: 0;
+  right: 0;
+
+}
+
+
+
+
+/* عرض العنصر الذي نريد إبقاءه */
+#namenone {
+  visibility: visible;
+}
+
+#erortex{
+
+margin-right: 90px;
+margin-bottom: 20px;
+font-size: 10px;
+}
+
+#boxibox {
+width: 250px;
+padding: 1px;
+  margin-top: 10px;
+
+  margin-bottom: 20px;
+  background-color: #e6f0ff6a;
+  border: 1px solid #18191a25;
+  border-radius: 4px;
+  margin: 20px auto;
+  margin-top: -0px; 
+
+}
+
+#textex {
+
+  font-size: 8px;
+  text-align: left;
+  direction: ltr;
+  align-items: center;
+}
+
+#NONE10 {
+
+  font-size: 11PX;
+  margin-bottom: 15px;
+
+}
+
+h6{
+  text-align: center;
+  color: #007bff;
+
+}
+
+#beneficiaryName ,#amountValu ,#textex0{
+  display: block;           /* يجعل العنصر يأخذ كامل العرض */
+  text-align: center;       /* يوسّط النص */
+  width: 100%;              /* يتأكد أن العرض كامل */
+}
+#textex0{
+  font-size: 12px;
+  color: #ff0000;
+}
+
+#timer {
+  top: 50px; /* حرّكه للأعلى */
+  left: 50%;
+  transform: translateX(-10%);
+  font-size: 12px;
+  font-weight: bold;
+}
